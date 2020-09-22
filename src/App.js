@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import { Layout } from './components/layout/layout.component';
+import { Header } from './components/header/header.component';
 import { CardList } from './components/card-list/card-list.component';
 import { SearchBox } from './components/search-box/search-box.component';
 
@@ -28,18 +30,12 @@ class App extends Component {
       );
 
       return (
-            <div className="App">
-               <header>
-                  <h1>iMonstergram</h1>
-               </header>
-
-               <SearchBox
-                  placeholder="Search monster"
-                  handleChange={e => this.setState({ searchField: e.target.value })}
-               />
-
-               <CardList monsters={ filteredMonsters } />
-            </div>
+         <Layout>
+            <Header title="iMonstergram" />
+            <SearchBox placeholder="Search monster here" 
+                  handleChange={e => this.setState({ searchField: e.target.value })}/>
+            <CardList monsters={ filteredMonsters }/>
+         </Layout>
       );
   }
 }
